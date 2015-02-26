@@ -39,7 +39,7 @@ function handleError(task) {
 
 function scripts(watch) {
   var bundler, rebundle;
-  bundler = browserify('./app/scripts/app.js', _.extend({
+  bundler = browserify('./app/scripts/main.js', _.extend({
     extensions: ['.jsx'],
     debug: env === 'dev',
     transform: 'reactify'
