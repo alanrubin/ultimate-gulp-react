@@ -173,16 +173,6 @@ gulp.task('connect', function() {
   });
 });
 
-gulp.task('webserver', function() {
-  return gulp.src(['.tmp', 'app'])
-    .pipe($.webserver({
-      host: '0.0.0.0', //change to 'localhost' to disable outside connections
-      livereload: true,
-      open: false,
-      proxies: [ { source: '/server', target: 'http://127.0.0.1:4567/server' } ]
-    }));
-});
-
 gulp.task('html', function () {
   gulp.src('app/*.html')
     .pipe($.connect.reload());
