@@ -10,7 +10,7 @@ var Header = React.createClass({
 	            <li><a href="#">About</a></li>
 	            <li><a href="#">Contact</a></li>
 	          </ul>
-	          <h3 className="text-muted">muse webapp</h3>
+	          <h3 className="text-muted">React Webapp</h3>
 	        </div>
 		);
 	}
