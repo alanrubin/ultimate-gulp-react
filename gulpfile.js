@@ -98,15 +98,12 @@ gulp.task('watchScripts', ['lint'], function() {
   return scripts(true);
 });
 
-gulp.task('compass', function() {
+gulp.task('styles', function() {
   return gulp.src('app/styles/**/*.scss')
     .pipe($.plumber())
-    .pipe($.compass({
-      sourcemap: true,
-      css: '.tmp/styles',
-      sass: 'app/styles'
-    }))
-    .pipe($.connect.reload());
+    .pipe($.sass())
+    .pipe($.connect.reload())
+    .pipe(gulp.dest('.tmp/styles'));
 });
 
 gulp.task('imagemin', function() {
@@ -187,10 +184,10 @@ gulp.task('html', function () {
 gulp.task('serve', ['connect', 'watch']);
 
 gulp.task('watch', function() {
-  runSequence('clean:dev', ['watchScripts', 'compass', 'vendor-scripts']);
+  runSequence('clean:dev', ['watchScripts', 'styles', 'vendor-scripts']);
 
   gulp.watch('app/*.html', ['html']);
-  gulp.watch('app/styles/**/*.scss', ['compass']);
+  gulp.watch('app/styles/**/*.scss', ['styles']);
   gulp.watch('app/**/*.js', ['lint']);
 });
 
@@ -198,7 +195,7 @@ gulp.task('build', function() {
   env = 'prod';
 
   runSequence(['clean:dev', 'clean:dist'],
-              ['scripts', 'vendor-scripts', 'compass', 'imagemin', 'copy'],
+              ['scripts', 'vendor-scripts', 'styles', 'imagemin', 'copy'],
               'fonts',
               'bundle');
 });
