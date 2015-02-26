@@ -4,6 +4,7 @@
     "bootstrap-sass": "~3.3.3",
     "react": "~0.12",
     "react-router": "~0.12.4",
+    "modernizr": "~3.0.0-alpha.2"
   },
   "devDependencies": {
     "gulp": "~3.8.8",
