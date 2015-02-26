@@ -101,7 +101,9 @@ gulp.task('watchScripts', ['lint'], function() {
 gulp.task('styles', function() {
   return gulp.src('app/styles/**/*.scss')
     .pipe($.plumber())
+    .pipe($.sourcemaps.init())
     .pipe($.sass())
+    .pipe($.sourcemaps.write())
     .pipe($.connect.reload())
     .pipe(gulp.dest('.tmp/styles'));
 });
