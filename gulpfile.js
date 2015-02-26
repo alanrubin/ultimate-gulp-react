@@ -158,7 +158,7 @@ gulp.task('bundle', function () {
 
 gulp.task('connect', function() {
   $.connect.server({
-    root: ['.tmp', 'app'],
+    root: ['.tmp', 'app', 'node_modules'],
     livereload: true,
     port: 8000,
     middleware: function(/*connect, o*/) {
