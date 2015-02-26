@@ -17,6 +17,11 @@ var gulp        = require('gulp'),
 
 var env = 'dev';
 
+var dependencies = [
+    'react',
+    'react/addons'
+];
+
 gulp.task('clean:dev', function() {
   return del(['.tmp']);
 });
@@ -31,11 +36,6 @@ function handleError(task) {
     $.notify.onError(task + ' failed, check the logs..')(err);
   };
 }
-
-var dependencies = [
-    'react',
-    'react/addons'
-];
 
 function scripts(watch) {
   var bundler, rebundle;
@@ -103,6 +103,9 @@ gulp.task('styles', function() {
     .pipe($.plumber())
     .pipe($.sourcemaps.init())
     .pipe($.sass())
+    .pipe($.autoprefixer({
+      browsers: ['last 1 version']
+    }))
     .pipe($.sourcemaps.write())
     .pipe($.connect.reload())
     .pipe(gulp.dest('.tmp/styles'));
@@ -141,9 +144,6 @@ gulp.task('bundle', function () {
     .pipe($.uglify())
     .pipe(jsFilter.restore())
     .pipe(cssFilter)
-    .pipe($.autoprefixer({
-      browsers: ['last 5 versions']
-    }))
     .pipe($.minifyCss())
     .pipe(cssFilter.restore())
     .pipe(htmlFilter)
