@@ -6,14 +6,14 @@
 // Interesting links as well: http://christianalfoni.github.io/javascript/2014/08/29/choosing-the-correct-packaging-tool-for-react-js.html
 //  and http://christianalfoni.github.io/javascript/2014/10/30/react-js-workflow-part2.html
 
-var gulp        = require('gulp');
-var $           = require('gulp-load-plugins')();
-var del         = require('del');
-var source      = require('vinyl-source-stream');
-var browserify  = require('browserify');
-var watchify = require('watchify');
-var runSequence = require('run-sequence');
-var _ = require('lodash');
+var gulp        = require('gulp'),
+    $           = require('gulp-load-plugins')(),
+    del         = require('del'),
+    source      = require('vinyl-source-stream'),
+    browserify  = require('browserify'),
+    watchify = require('watchify'),
+    runSequence = require('run-sequence'),
+    _ = require('lodash');
 
 var env = 'dev';
 
@@ -86,7 +86,7 @@ function vendorScripts() {
   return rebundle();
 }
 
-gulp.task('scripts', function() {
+gulp.task('scripts', ['lint'], function() {
   return scripts(false);
 });
 
@@ -94,7 +94,7 @@ gulp.task('vendor-scripts', function() {
   return vendorScripts();
 });
  
-gulp.task('watchScripts', function() {
+gulp.task('watchScripts', ['lint'], function() {
   return scripts(true);
 });
 
@@ -173,6 +173,12 @@ gulp.task('connect', function() {
   });
 });
 
+gulp.task('lint', function() {
+    return gulp.src(['app/scripts/*.js', 'app/scripts/**/*.js'])
+            .pipe($.jshint('.jshintrc'))
+            .pipe($.jshint.reporter('jshint-stylish'));
+});
+
 gulp.task('html', function () {
   gulp.src('app/*.html')
     .pipe($.connect.reload());
@@ -185,6 +191,7 @@ gulp.task('watch', function() {
 
   gulp.watch('app/*.html', ['html']);
   gulp.watch('app/styles/**/*.scss', ['compass']);
+  gulp.watch('app/**/*.js', ['lint']);
 });
 
 gulp.task('build', function() {
