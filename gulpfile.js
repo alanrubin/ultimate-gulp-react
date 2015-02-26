@@ -184,11 +184,6 @@ gulp.task('watch', function() {
   runSequence('clean:dev', ['watchScripts', 'compass', 'vendor-scripts']);
 
   gulp.watch('app/*.html', ['html']);
-
-  // gulp.watch('app/scripts/**/*.js', ['scripts']);
-
-  // gulp.watch('app/scripts/**/*.jsx', ['scripts']);
-  
   gulp.watch('app/styles/**/*.scss', ['compass']);
 });
 
