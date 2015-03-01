@@ -155,7 +155,15 @@ gulp.task("test", function () {
         ],
         moduleFileExtensions: [
             "jsx",
-            "js"
+            "js",
+            "cjsx",
+            "coffee"
+        ],
+        testFileExtensions: [
+            "jsx",
+            "js",
+            "cjsx",
+            "coffee"
         ]
     }));
 });
