@@ -16,6 +16,9 @@ var gulp = require("gulp"),
   runSequence = require("run-sequence"),
   _ = require("lodash");
 
+// To avoid JEST tests to fail
+require("harmonize")();
+
 var env = "dev";
 
 var dependencies = [
@@ -139,14 +142,23 @@ gulp.task("fonts", function() { 
   return gulp.src("./app/fonts/**.*") .pipe(gulp.dest("dist/fonts/"));
 });
 
-// gulp.task("jest", function () {
-//     var nodeModules = path.resolve("./node_modules");
-//     return gulp.src("app/scripts/**/__tests__")
-//         .pipe($.jest({
-//             scriptPreprocessor: nodeModules + "/gulp-jest/preprocessor.js",
-//             unmockedModulePathPatterns: [nodeModules + "/react"]
-//         }));
-// });
+gulp.task("test", function () {
+    return gulp.src("spec").pipe($.jest({
+        scriptPreprocessor: "./support/preprocessor.js",
+        unmockedModulePathPatterns: [
+            "node_modules/react"
+        ],
+        testDirectoryName: "spec",
+        testPathIgnorePatterns: [
+            "node_modules",
+            "spec/support"
+        ],
+        moduleFileExtensions: [
+            "jsx",
+            "js"
+        ]
+    }));
+});
 
 // gulp.task("json", function() {
 //     gulp.src("app/scripts/json/**/*.json", {base: "app/scripts"})
