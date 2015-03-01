@@ -165,7 +165,7 @@ gulp.task("test", function () {
             "spec.cjsx",
             "spec.coffee"
         ]
-    }));
+    }).on("error", handleError("Jest Error")));
 });
 
 // gulp.task("json", function() {
@@ -226,9 +226,7 @@ gulp.task("lint", function() {
     .pipe($.eslint())
     .pipe($.eslint.format())
     .pipe($.eslint.failAfterError())
-    .on("error", function() {
-      $.util.beep();
-    });
+    .on("error", handleError("Lint error"));
 });
 
 gulp.task("html", function() {
@@ -243,13 +241,14 @@ gulp.task("watch", function() {
 
   gulp.watch("app/*.html", ["html"]);
   gulp.watch("app/styles/**/*.scss", ["styles"]);
-  gulp.watch(["app/**/*.js", "app/**/*.jsx"], ["lint"]);
+  gulp.watch(["app/**/*.js", "app/**/*.jsx", "app/**/*.cjsx"], ["lint", "test"]);
 });
 
 gulp.task("build", function() {
   env = "prod";
 
   runSequence(["clean:dev", "clean:dist"], ["scripts", "vendor-scripts", "styles", "imagemin", "copy"],
+    "test",
     "fonts",
     "bundle");
 });
