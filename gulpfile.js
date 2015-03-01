@@ -41,10 +41,16 @@ function handleError(task) {
 function scripts(watch) {
   var bundler, rebundle;
   bundler = browserify("./app/scripts/main.js", _.extend({
-    extensions: [".jsx"],
-    debug: env === "dev",
-    transform: ["babelify", "reactify"]
+    extensions: [".coffee", ".jsx", ".cjsx"],
+    debug: env === "dev"
   }, watchify.args));
+
+  // Support ES6 with Babel
+  bundler.transform("babelify");
+  bundler.transform("reactify");
+
+  // Support CoffeeScript with React
+  bundler.transform("coffee-reactify");
 
   _.each(dependencies, function(dep) {
     bundler.external(dep);

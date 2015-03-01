@@ -4,7 +4,8 @@ var React = require("react");
 
 var Header = React.createClass({
 
-  render: function() {
+  // Sample ES6 syntax
+  render() {
     return (
       <div className="header">
         <ul className="nav nav-pills pull-right">

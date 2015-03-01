@@ -38,7 +38,8 @@
     "babelify": "~5.0.3",
     "gulp-eslint": "~0.5.0",
     "eslint": "~0.15.1",
-    "babel-eslint": "~1.0.12"
+    "babel-eslint": "~1.0.12",
+    "coffee-reactify": "~2.4.1"
   },
   "engines": {
     "node": ">=0.10.0"
