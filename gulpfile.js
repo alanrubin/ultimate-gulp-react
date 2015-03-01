@@ -42,9 +42,9 @@ function scripts(watch) {
   bundler = browserify('./app/scripts/main.js', _.extend({
     extensions: ['.jsx'],
     debug: env === 'dev',
-    transform: 'reactify'
+    transform: ['babelify', 'reactify']
   }, watchify.args));
-    
+
   _.each(dependencies, function(dep) {
     bundler.external(dep);
   });
