@@ -1,11 +1,11 @@
 /* global jest describe it expect */
 "use strict";
 
-jest.dontMock("../app/scripts/components/home.jsx");
+jest.dontMock("./home.jsx");
 describe("Home", function() {
   it("renders it correctly", function() {
     var React = require("react/addons");
-    var Home = require("../app/scripts/components/home.jsx");
+    var Home = require("./home.jsx");
     var TestUtils = React.addons.TestUtils;
 
     // Render the home

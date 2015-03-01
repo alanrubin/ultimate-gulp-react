@@ -1,11 +1,11 @@
 /* global jest describe it expect */
 "use strict";
 
-jest.dontMock("../app/scripts/components/header.jsx");
+jest.dontMock("./header.jsx");
 describe("Header", function() {
   it("renders it correctly", function() {
     var React = require("react/addons");
-    var Header = require("../app/scripts/components/header.jsx");
+    var Header = require("./header.jsx");
     var TestUtils = React.addons.TestUtils;
 
     // Render the header

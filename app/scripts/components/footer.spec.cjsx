@@ -1,9 +1,9 @@
-jest.dontMock '../app/scripts/components/footer.cjsx'
+jest.dontMock './footer.cjsx'
 
 describe 'footer', ->
   it 'renders it correctly', ->
     React = require 'react/addons'
-    Footer = require '../app/scripts/components/footer.cjsx'
+    Footer = require './footer.cjsx'
     TestUtils = React.addons.TestUtils
 
     # Render the footer

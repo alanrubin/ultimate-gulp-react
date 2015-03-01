@@ -143,12 +143,12 @@ gulp.task("fonts", function() { 
 });
 
 gulp.task("test", function () {
-    return gulp.src("spec").pipe($.jest({
-        scriptPreprocessor: "./support/preprocessor.js",
+    return gulp.src("app/scripts").pipe($.jest({
+        scriptPreprocessor: "../../spec/support/preprocessor.js",
         unmockedModulePathPatterns: [
             "node_modules/react"
         ],
-        testDirectoryName: "spec",
+        testDirectoryName: "app/scripts",
         testPathIgnorePatterns: [
             "node_modules",
             "spec/support"
@@ -160,10 +160,10 @@ gulp.task("test", function () {
             "coffee"
         ],
         testFileExtensions: [
-            "jsx",
-            "js",
-            "cjsx",
-            "coffee"
+            "spec.jsx",
+            "spec.js",
+            "spec.cjsx",
+            "spec.coffee"
         ]
     }));
 });
