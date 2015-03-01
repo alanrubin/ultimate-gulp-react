@@ -1,9 +1,9 @@
-'use strict';
+"use strict";
 
-var React = require('react'),
-    RouteHandler = require('react-router').RouteHandler,
-    Header = require('./header'),
-    Footer = require('./footer');
+var React = require("react"),
+    RouteHandler = require("react-router").RouteHandler,
+    Header = require("./header"),
+    Footer = require("./footer");
 
 var App = React.createClass({
   render: function() {

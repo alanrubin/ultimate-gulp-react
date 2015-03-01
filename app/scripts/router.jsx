@@ -1,14 +1,12 @@
-/*global document*/
-'use strict';
+"use strict";
 
-var React     = require('react'),
- Router       = require('react-router'),
- App           = require('./components/app'),
- Home = require('./components/home');
-
+var React = require("react"),
+ Router = require("react-router"),
+ App = require("./components/app"),
+ Home = require("./components/home");
 
 var routes = (
-	<Router.Route name="app" path="/" handler={App}>
+  <Router.Route name="app" path="/" handler={App}>
      <Router.DefaultRoute handler={Home}/>
     </Router.Route>
     );
