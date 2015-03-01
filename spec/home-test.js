@@ -1,10 +1,8 @@
-/** @jsx React.DOM */
-
 /* global jest describe it expect */
 "use strict";
 
 jest.dontMock("../app/scripts/components/home.jsx");
-describe("Header", function() {
+describe("Home", function() {
   it("renders it correctly", function() {
     var React = require("react/addons");
     var Home = require("../app/scripts/components/home.jsx");
