@@ -190,7 +190,11 @@ gulp.task('connect', function() {
 gulp.task('lint', function() {
     return gulp.src(['app/scripts/*.js', 'app/scripts/**/*.js', 'app/scripts/*.jsx', 'app/scripts/**/*.jsx'])
             .pipe($.eslint())
-            .pipe($.eslint.format());
+            .pipe($.eslint.format())
+            .pipe($.eslint.failAfterError())
+            .on('error', function() {
+              $.util.beep();
+            })
 });
 
 gulp.task('html', function () {
