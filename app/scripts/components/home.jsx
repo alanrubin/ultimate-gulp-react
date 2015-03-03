@@ -6,7 +6,7 @@ var Home = React.createClass({
 
   render: function() {
     return (
-      <div>
+      <div id="home">
         <div className="jumbotron">
           <h1>'Allo, 'Allo!</h1>
           <p className="lead">Always a pleasure scaffolding your apps.</p>
