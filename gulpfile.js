@@ -146,7 +146,8 @@ gulp.task("test", function () {
     return gulp.src("app/scripts").pipe($.jest({
         scriptPreprocessor: "../../spec/support/preprocessor.js",
         unmockedModulePathPatterns: [
-            "node_modules/react"
+            "node_modules/react",
+            "spec/support/stubRouterContext.jsx"
         ],
         testDirectoryName: "app/scripts",
         testPathIgnorePatterns: [

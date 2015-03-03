@@ -11,15 +11,13 @@
 
 var React = require("react");
 
-var func = React.PropTypes.func;
-
-// Polyfill for Object.assign
+// Polyfill Object Assign
 if (!Object.assign) {
   Object.defineProperty(Object, "assign", {
     enumerable: false,
     configurable: true,
     writable: true,
-    value: function(target, firstSource) {
+    value: function(target) {
       if (target === undefined || target === null) {
         throw new TypeError("Cannot convert first argument to object");
       }
@@ -48,17 +46,17 @@ if (!Object.assign) {
 var stubRouterContext = function(Component, props, stubs) {
   return React.createClass({
     childContextTypes: {
-      makePath: func,
-      makeHref: func,
-      transitionTo: func,
-      replaceWith: func,
-      goBack: func,
-      getCurrentPath: func,
-      getCurrentRoutes: func,
-      getCurrentPathname: func,
-      getCurrentParams: func,
-      getCurrentQuery: func,
-      isActive: func
+      makePath: React.PropTypes.func,
+      makeHref: React.PropTypes.func,
+      transitionTo: React.PropTypes.func,
+      replaceWith: React.PropTypes.func,
+      goBack: React.PropTypes.func,
+      getCurrentPath: React.PropTypes.func,
+      getCurrentRoutes: React.PropTypes.func,
+      getCurrentPathname: React.PropTypes.func,
+      getCurrentParams: React.PropTypes.func,
+      getCurrentQuery: React.PropTypes.func,
+      isActive: React.PropTypes.func
     },
 
     getChildContext: function() {
@@ -78,7 +76,8 @@ var stubRouterContext = function(Component, props, stubs) {
     },
 
     render: function() {
-      return <Component {...props} />;
+      // return <Home/>;
+      return <Component {...props}/>;
     }
   });
 };
