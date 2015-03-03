@@ -1,28 +1,5 @@
-$icon-font-path: "../fonts/";
-
-@import "../../node_modules/bootstrap-sass/assets/stylesheets/bootstrap";
-
-.browsehappy {
-  margin: 0.2em 0;
-  background: #ccc;
-  color: #000;
-  padding: 0.2em 0;
-}
-
-/* Space out content a bit */
-body {
-  padding-top: 20px;
-  padding-bottom: 20px;
-}
-
-/* Responsive: Portrait tablets and up */
-@media screen and (min-width: 768px) {
-  .container {
-    max-width: 730px;
-  }
-}
-
 // SMACSS structure
+@import "base";
 @import "layouts/footer";
 @import "layouts/header";
 @import "layouts/common";
