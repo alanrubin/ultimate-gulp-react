@@ -1,8 +1,4 @@
 #header {
-  /* Everything but the jumbotron gets side spacing for mobile first views */
-  padding-left: 15px;
-  padding-right: 15px;
-
   /* Custom page header */
   border-bottom: 1px solid #e5e5e5;
 
@@ -16,10 +12,6 @@
 
   /* Responsive: Portrait tablets and up */
   @media screen and (min-width: 768px) {
-    /* Remove the padding we set earlier */
-    padding-left: 0;
-    padding-right: 0;
-
     /* Space out the masthead */
     margin-bottom: 30px;
   }

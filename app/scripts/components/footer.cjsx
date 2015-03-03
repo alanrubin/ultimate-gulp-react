@@ -3,7 +3,7 @@ React = require("react")
 
 Footer = React.createClass
   render: ->
-    <div id="footer">
+    <div id="footer" className="l-side-spacing">
       <p><span className="glyphicon glyphicon-heart"></span> from the Yeoman team</p>
     </div>
 

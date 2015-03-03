@@ -22,7 +22,9 @@ body {
   }
 }
 
+// SMACSS structure
 @import "layouts/footer";
 @import "layouts/header";
+@import "layouts/common";
 @import "modules/jumbotron";
 @import "modules/marketing";

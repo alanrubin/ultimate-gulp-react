@@ -7,7 +7,7 @@ var Header = React.createClass({
   // Sample ES6 syntax
   render() {
     return (
-      <div id="header">
+      <div id="header" className="l-side-spacing">
         <ul className="nav nav-pills pull-right">
           <li className="active"><a href="#">Home</a></li>
           <li><a href="#">About</a></li>

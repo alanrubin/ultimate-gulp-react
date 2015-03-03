@@ -13,7 +13,7 @@ var Home = React.createClass({
           <p><a className="btn btn-lg btn-success" href="#">Splendid! <span className="glyphicon glyphicon-ok"></span></a></p>
         </div>
 
-        <div className="row marketing">
+        <div className="row marketing l-side-spacing">
           <div className="col-lg-6">
             <h4>HTML5 Boilerplate</h4>
             <p>HTML5 Boilerplate is a professional front-end template for building fast, robust, and adaptable web apps or sites.</p>
