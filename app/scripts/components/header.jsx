@@ -1,6 +1,7 @@
 "use strict";
 
-var React = require("react");
+var React = require("react"),
+    Router = require("react-router");
 
 var Header = React.createClass({
 
@@ -9,9 +10,9 @@ var Header = React.createClass({
     return (
       <div id="header" className="l-side-spacing">
         <ul className="nav nav-pills pull-right">
-          <li className="active"><a href="#">Home</a></li>
-          <li><a href="#">About</a></li>
-          <li><a href="#">Contact</a></li>
+          <li className="active"><Router.Link to="app">Home</Router.Link></li>
+          <li><Router.Link to="about">About</Router.Link></li>
+          <li><Router.Link to="contact">Contact</Router.Link></li>
         </ul>
         <h3 className="text-muted">React Webapp</h3>
       </div>
