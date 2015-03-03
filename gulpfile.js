@@ -111,14 +111,15 @@ gulp.task("watchScripts", ["lint"], function() {
 gulp.task("styles", function() {
   return gulp.src("app/styles/**/*.scss")
     .pipe($.plumber())
-    .pipe($.sourcemaps.init())
-    .pipe($.sass())
+    .pipe($.compass({
+      sourcemap: true,
+      css: ".tmp/styles",
+      sass: "app/styles"
+    }))
     .pipe($.autoprefixer({
       browsers: ["last 1 version"]
     }))
-    .pipe($.sourcemaps.write())
-    .pipe($.connect.reload())
-    .pipe(gulp.dest(".tmp/styles"));
+    .pipe($.connect.reload());
 });
 
 gulp.task("imagemin", function() {

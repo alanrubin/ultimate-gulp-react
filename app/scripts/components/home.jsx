@@ -10,7 +10,7 @@ var Home = React.createClass({
         <div className="jumbotron">
           <h1>'Allo, 'Allo!</h1>
           <p className="lead">Always a pleasure scaffolding your apps.</p>
-          <p><a className="btn btn-lg btn-success" href="#">Splendid! <span className="glyphicon glyphicon-ok"></span></a></p>
+          <p><a className="btn btn-lg btn-success jumbotron__btn" href="#">Splendid! <span className="glyphicon glyphicon-ok"></span></a></p>
         </div>
 
         <div className="row marketing">
