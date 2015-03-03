@@ -16,8 +16,8 @@ var gulp = require("gulp"),
   runSequence = require("run-sequence"),
   _ = require("lodash");
 
-// To avoid JEST tests to fail
-require("harmonize")();
+// To avoid JEST tests to fail : Seems we don't need that
+// require("harmonize")();
 
 var env = "dev";
 
