@@ -169,6 +169,12 @@ gulp.task("test", function () {
     }).on("error", handleError("Jest Error")));
 });
 
+gulp.task("styleguide", function () {
+    gulp.src("app/styles/styleguide.lsg")
+        .pipe($.livingstyleguide())
+        .pipe(gulp.dest("dist"));
+});
+
 // gulp.task("json", function() {
 //     gulp.src("app/scripts/json/**/*.json", {base: "app/scripts"})
 //         .pipe(gulp.dest("dist/scripts/"));
