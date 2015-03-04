@@ -170,9 +170,10 @@ gulp.task("test", function () {
 });
 
 gulp.task("styleguide", function () {
-    gulp.src("app/styles/styleguide.lsg")
+    gulp.src("styleguide/styleguide.html.lsg")
         .pipe($.livingstyleguide())
-        .pipe(gulp.dest("dist"));
+        .pipe($.connect.reload())
+        .pipe(gulp.dest("styleguide"));
 });
 
 // gulp.task("json", function() {
@@ -213,7 +214,7 @@ gulp.task("bundle", function() {
 
 gulp.task("connect", function() {
   $.connect.server({
-    root: [".tmp", "app", "node_modules"],
+    root: [".tmp", "app", "node_modules", "styleguide"],
     livereload: true,
     port: 8000,
     middleware: function( /*connect, o*/ ) {
@@ -244,11 +245,12 @@ gulp.task("html", function() {
 gulp.task("serve", ["connect", "watch"]);
 
 gulp.task("watch", function() {
-  runSequence("clean:dev", ["watchScripts", "styles", "vendor-scripts"]);
+  runSequence("clean:dev", ["watchScripts", "styles", "vendor-scripts", "test", "styleguide"]);
 
   gulp.watch("app/*.html", ["html"]);
-  gulp.watch("app/styles/**/*.scss", ["styles"]);
-  gulp.watch(["app/**/*.js", "app/**/*.jsx", "app/**/*.cjsx"], ["lint", "test"]);
+  gulp.watch("app/styles/**/*.scss", ["styles", "styleguide"]);
+  gulp.watch("app/styles/**/*.md", ["styleguide"]);
+  gulp.watch(["app/**/*.js", "app/**/*.jsx", "app/**/*.cjsx"], ["lint", "test", "styleguide"]);
 });
 
 gulp.task("build", function() {
